@@ -78,6 +78,7 @@
     dependendants.
 .LINK
     https://docs.microsoft.com/en-us/iis/install/web-platform-installer/web-platform-installer-direct-downloads
+    https://github.com/Omneinfluat/PoSH/tree/master/IIS
 .NOTES
     Path..........: 
     Name..........: Install-WPI.PS1
