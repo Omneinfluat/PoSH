@@ -10,7 +10,9 @@
     installed.
 
     This can be done via Web Plattform Installer
-    Scripted or manualy
+    Scripted or manually.
+
+    https://github.com/Omneinfluat/PoSH/tree/master/IIS/Install-WPI
 .PARAMETER Sites
     Name(s) of the IIS site(s) to create a rewrite 
     rule for.
@@ -18,6 +20,7 @@
     I.e. the name of the site as it appears in IIS.
 .LINK
     https://docs.microsoft.com/en-us/iis/install/web-platform-installer/web-platform-installer-direct-downloads
+    https://github.com/Omneinfluat/PoSH/tree/master/IIS
 .NOTES
     Path..........: 
     Name..........: Set-HttpsRewrite.PS1
@@ -52,7 +55,7 @@
 
 [CmdletBinding()]
 Param(
-    [Parameter(Position=0, HelpMessage="IIS site names")] [String[]]$Sites
+    [Parameter(Mandatory=$true,Position=0, HelpMessage="IIS site names")] [String[]]$Sites
 )
 
 #region https redirect
