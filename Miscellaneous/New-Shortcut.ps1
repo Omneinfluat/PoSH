@@ -73,7 +73,7 @@ Param(
     [Parameter(HelpMessage="Description for the Link")][string]$LinkDescription,
     [Parameter(HelpMessage="Working directory for link if other than dir for Sourcefile")][string]$LinkWorkingDirectory,
     [Parameter(HelpMessage="Hotkey for link")][string]$LinkHotkey,
-    [Parameter(HelpMessage="Icon for link")][string]$LinkIcon = "yourexecutable.exe, 0",
+    [Parameter(HelpMessage="Icon for link")][string]$LinkIcon = "$SourceFile, 0",
     [Parameter(HelpMessage="Window Style of link (1=Normal, 3=Max, 7=Min)")][ValidateSet(1,3,7)][Int]$LinkWindowStyle = 1
 )
 
@@ -93,7 +93,7 @@ IF (-not($LinkWorkingDirectory)) { #If not specifically provided sets working di
 }
 $ShortCut.WorkingDirectory = $LinkWorkingDirectory; #Add the working dir
 
-$ShortCut.WindowStyle = 1; #Add window style (1=Normal, 3=Max, 7=Min)
+$ShortCut.WindowStyle = $LinkWindowStyle; #Add window style (1=Normal, 3=Max, 7=Min)
 
 IF ($LinkHotkey) {  #If specified add link hotkey
     $ShortCut.Hotkey = $LinkHotkey;
@@ -101,5 +101,5 @@ IF ($LinkHotkey) {  #If specified add link hotkey
 
 $ShortCut.IconLocation = $LinkIcon; #add link icon
 
-$Shortcut.Save() #Save (create the shortcut)
+$Shortcut.Save() #Save (create) the shortcut
 
