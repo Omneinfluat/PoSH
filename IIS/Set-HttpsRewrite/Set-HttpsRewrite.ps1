@@ -59,8 +59,8 @@ Param(
 )
 
 #region https redirect
-ForEach ($Site IN $Sites) {
-$site = "iis:\sites\$sitename"
+ForEach ($Sitename IN $Sites) {
+$site = "iis:\sites\$Sitename"
 $filterRoot = "system.webServer/rewrite/rules/rule[@name='Redirect to HTTPS']"
 Clear-WebConfiguration -pspath $site -filter $filterRoot
 Add-WebConfigurationProperty -pspath $site  -filter "system.webServer/rewrite/rules" -name "." -value @{name='Redirect to HTTPS';patternSyntax='Regular Expressions';stopProcessing='true'} -AtIndex 0
